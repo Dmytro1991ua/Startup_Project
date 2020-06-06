@@ -1,0 +1,25 @@
+.header {
+    background: url(../img/bg-header-small.png) (center / cover) no-repeat;
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    position: relative;
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 48em), (min-width: 120em), only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 48em), (min-width: 120em) {
+        background: url(../img/bg-header.png) (center / cover) no-repeat;
+    }
+
+    @include respond(phone) {
+        background: url(../img/bg-header-small.png) (25% / cover) no-repeat;
+    }
+
+
+    &__body {
+        text-align: center;
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+}

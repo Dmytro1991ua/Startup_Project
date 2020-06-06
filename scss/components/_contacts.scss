@@ -1,0 +1,69 @@
+.contacts {
+	flex: 0 1 21.5%;
+
+	&:not(:last-child) {
+		margin-right: 18.5rem;
+	}
+
+	@include respond(phone) {
+		flex: 0 1 100%;
+		display: block;
+
+		&:not(:last-child) {
+			margin-right: 0;
+		}
+	}
+
+	&__info {
+		@include align-items(flex-start, nowrap);
+
+		&:not(:last-child) {
+			margin-bottom: 3.7rem;
+		}
+
+		@include respond(phone) {
+			margin-bottom: 3.7rem;
+		}
+
+	}
+
+	&__symbol {
+		
+		&:not(:last-child) {
+			margin-right: 1.4rem;
+		}
+	}
+
+	&__icon {
+		width: 2.2rem;
+		height: 2.9rem;
+		fill: $color-davy-gray;
+	}
+
+	&__title {
+		@include respond(phone) {
+			display: flex;
+		}
+	}
+
+	&__content {
+		font-size: 1.2rem;
+		line-height: 2rem;
+		color: $color-davy-gray;
+
+		span {
+			display: block;
+		}
+
+		@include respond(phone) {
+			span{
+				display: inline;
+				margin-left: 1rem;
+				vertical-align: middle;
+				font-size: 1.3rem;
+			}
+		}
+
+	}
+}
+

@@ -1,0 +1,88 @@
+// breackpoints for responsive design
+@mixin respond($breakpoint) {
+    @if $breakpoint == tiny-phone {
+        @media only screen and (max-width: 34.3em) {
+            @content;
+        } //550px
+    }
+
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 48em) {
+            @content;
+        } //767px
+    }
+
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 62em) {
+            @content;
+        } //992px
+    }
+
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) {
+            @content;
+        } //1200px
+    }
+
+    @if $breakpoint == laptop-big {
+        @media only screen and (min-width: 101em) {
+            @content;
+        } //1601px
+    }
+
+    @if $breakpoint == laptop-huge {
+        @media only screen and (min-width: 120em) {
+            @content;
+        } //1950px
+    }
+}
+
+// paddings for sections
+
+@mixin padding-section {
+    padding: 10rem 0;
+}
+
+// display flex - general
+
+@mixin display-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// changes for flex-direction
+
+@mixin flex-direction($column) {
+    display: flex;
+    flex-direction: $column;
+    justify-content: center;
+    align-items: center;
+}
+
+// changes for flex-wrap
+
+@mixin flex-wrap($wrap) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: $wrap;
+}
+
+//changes for align-items
+
+@mixin align-items($flex-start, $nowrap) {
+    display: flex;
+    justify-content: center;
+    align-items: $flex-start;
+    flex-wrap: $nowrap;
+}
+
+//changes for justify-content
+
+@mixin justify-content($space-between, $wrap) {
+    display: flex;
+    justify-content: $space-between;
+    align-items: center;
+    flex-wrap: $wrap;
+}

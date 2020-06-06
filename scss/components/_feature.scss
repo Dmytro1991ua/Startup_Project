@@ -1,0 +1,43 @@
+.features {
+    @include display-flex;
+
+    flex-wrap: nowrap;
+    height: 100%;
+
+    @include respond(phone) {
+        flex-wrap: wrap;
+    }
+
+
+    &__item {
+        @include flex-direction(column);
+
+        height: 100%;
+
+        &:not(:last-child) {
+            margin-right: 4.5rem;
+        }
+
+        @include respond(phone) {
+            flex: 0 1 100%;
+
+            &:not(:last-child) {
+                margin-right: 0;
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    &__paragraph {
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 2.4rem;
+        max-width: 34.5rem;
+        text-align: center;
+        color: $color-davy-gray;
+
+        @include respond(phone) {
+            line-height: 2.8rem;
+        }
+    }
+}

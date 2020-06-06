@@ -1,0 +1,185 @@
+.navigation {
+    padding: 4rem 0;
+    font-family: Montserrat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+
+    @include respond(phone) {
+        background-color: rgba($color-light-red, 0.9);
+        padding: 2.7rem 0rem;
+    }
+
+
+    &__body {
+        @include justify-content(space-between, wrap);
+    }
+
+    &__logo {
+        color: $color-white;
+        animation: bounceInDown 1.2s ease-in .1s;
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+        width: 7rem;
+        height: 7rem;
+        background-color: $color-silver;
+        border-radius: 50%;
+        box-shadow: 0 1rem 3rem rgba($color-black, 0.3);
+        position: fixed;
+        top: 1rem;
+        right: 10.5rem;
+        z-index: 5;
+        cursor: pointer;
+
+        @include respond(tab-port) {
+            right: 1.2rem;
+        }
+    }
+
+    &__icon {
+        position: relative;
+        margin-top: 3.5rem;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-black;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all 0.3s; //animation for __icon while we are hovering __button
+       
+        }
+
+        &::before {
+            top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+        }
+    }
+
+    &__background {
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 1.2rem;
+        right: 10.7rem;
+        cursor: pointer;
+        background: radial-gradient($color-light-red, $color-dark-red);
+        z-index: 3;
+        transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+        @include respond(tab-port) {
+            right: 1.8rem;
+        }
+    }
+
+    &__nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        @include display-flex;
+
+        height: 100vh;
+        transition: all 0.5s;
+        z-index: 4;
+        opacity: 0;
+        width: 0;
+        transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    &__list {
+        text-align: center;
+    }
+
+    &__item {
+        list-style: none;
+        margin-bottom: 1.3rem;
+    }
+
+    &__link:link,
+    &__link:visited {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 400;
+        line-height: 2.4rem;
+        letter-spacing: .8rem;
+        text-transform: uppercase;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        color: $color-white;
+        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+        background-size: 225%;
+        transition: all .5s;
+
+        &:hover,
+        &:active {
+            background-position: 100%;
+            transform: traslateX(1rem);
+            color: $color-black;
+            font-weight: 600;
+            transition: all .2s;
+        }
+    }
+
+    &__checkbox:checked ~ &__background {
+        transform: scale(80);
+    }
+
+    &__checkbox:checked ~ &__nav {
+        opacity: 1;
+        width: 100%;
+    }
+
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        transform: rotate(135deg);
+        top: 0;
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        transform: rotate(-135deg);
+        top: 0;
+    }
+}
+
+//styles for sticky class for navigation while scrolling down
+.navigation.sticky {
+    background-color: rgba($color-light-red, 0.9);
+    padding: 2.7rem 2rem;
+    transition: all .4s;
+    z-index: 11;
+}

@@ -1,0 +1,94 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    @include respond(phone) {
+        justify-content: center;
+    }
+
+
+    &__img {
+        position: relative;
+        flex: 0 0 30%;
+
+        @include respond(phone) {
+            flex: 0 0 45%;
+        }
+
+
+        @include respond(tiny-phone) {
+            flex: 0 0 100%;
+        }
+
+
+        &:not(:last-child) {
+            margin-right: 2.5rem;
+            margin-bottom: 2.5rem;
+
+            @include respond(tiny-phone) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__pic {
+        max-width: 100%;
+        height: auto;
+        display: block;
+
+        @include respond(tiny-phone) {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: rgba(red, 0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all .5s ease;
+
+        @include respond(phone) {
+            opacity: 1;
+        }
+
+
+        &:hover {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+
+    &__btn {
+        display: flex;
+        padding: 1.3rem 2rem 1.3rem 2rem;
+        background-color: $color-white;
+    }
+
+    &__icon {
+        width: 1.5rem;
+        height: 2rem;
+        fill: #c0301c;
+    }
+
+    &__btn-title {
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+        text-transform: uppercase;
+        text-align: center;
+        color: $color-light-red;
+        padding-right: 1.2rem;
+    }
+}

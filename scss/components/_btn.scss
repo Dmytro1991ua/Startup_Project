@@ -1,0 +1,68 @@
+.btn {
+    display: inline-block;
+    padding: 1.5rem 3.5rem;
+    border: 2px solid $color-white;
+    background-color: transparent;
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: Montserrat;
+    line-height: 2.4rem;
+    color: $color-white;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all .7s;
+    animation: bounceInUp 1.2s ease-in .1s;
+
+    &:hover {
+        background-color: $color-white;
+        color: $color-black;
+        transform: translateY(-0.5rem);
+        box-shadow: 0 1rem 1.5rem rgba($color-black, 0.3);
+    }
+
+    &:focus {
+        animation: pulse  1s infinite;
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 0.5rem 1.3rem rgba($color-black, 0.4);
+    }
+
+    @include respond(phone) {
+        padding: 1.3rem 3rem;
+        font-size: 1.3rem;
+    }
+
+
+    &--dark {
+        border: 2px solid $color-davy-gray;
+        color: $color-davy-gray;
+        font-family: 'Roboto Slab';
+        animation: none;
+
+        &:not(:last-child) {
+            margin-right: 3.8rem;
+
+            @include respond(phone) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.btn-blog:link,
+.btn-blog:visited {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    line-height: 2.4rem;
+    color: $color-grey;
+    text-decoration: none;
+    transition: all .3s;
+
+    &:hover {
+        color: $color-light-red;
+    }
+}

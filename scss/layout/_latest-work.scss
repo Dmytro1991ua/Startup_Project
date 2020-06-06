@@ -1,0 +1,46 @@
+.latest-work {
+    @include padding-section;
+
+    @include respond(phone) {
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+    }
+
+
+    &__title {
+        text-align: center;
+    }
+
+    &__items {
+        @include display-flex;
+    }
+
+    &__text {
+        list-style: none;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+
+        &:not(:last-child) {
+            margin-right: 1.5rem;
+
+            @include respond(tiny-phone) {
+                margin-right: 1.2rem;
+            }
+        }
+    }
+
+    &__link:link,
+    &__link:visited {
+        text-decoration: none;
+        color: $color-davy-gray;
+
+        @include respond(phone) {
+            font-weight: 600;
+        }
+
+
+        &:hover {
+            color: $color-light-red;
+        }
+    }
+}

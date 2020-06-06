@@ -1,0 +1,13 @@
+.project {
+	@include padding-section;
+	background: linear-gradient(rgba($color-light-red, .6), rgba($color-light-red, .6)),
+					url(../img/bg-project.png) center / cover no-repeat;
+
+	width: 100%;
+	height: 100%;
+
+	&__info {
+		@include flex-direction(column);
+	}
+
+}

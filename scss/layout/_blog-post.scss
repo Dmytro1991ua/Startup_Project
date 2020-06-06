@@ -1,0 +1,12 @@
+.blog-post {
+	@include padding-section;
+
+	&__info {
+		text-align: center;
+	}
+
+	@include respond(phone) {
+		padding-top: 4.5rem;
+		padding-bottom: 5rem;
+	}
+}
