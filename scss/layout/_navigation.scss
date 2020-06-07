@@ -20,6 +20,8 @@
     &__logo {
         color: $color-white;
         animation: bounceInDown 1.2s ease-in .1s;
+        text-decoration: none;
+        cursor: pointer;
     }
 
     &__checkbox {
@@ -151,6 +153,7 @@
     &__checkbox:checked ~ &__nav {
         opacity: 1;
         width: 100%;
+        overflow: auto;
     }
 
     &__button:hover &__icon::before {
