@@ -10,20 +10,32 @@ var swiper = new Swiper('.swiper-container', {
         el: '.swiper-pagination',
         clickable: true,
     },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
     breakpoints: {
+        550: {
+            slidesPerView: 1,
+        },
+
+        650: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
         768: {
             slidesPerView: 2,
-            spaceBetween: 40,
+            spaceBetween: 20,
         },
 
         992: {
             slidesPerView: 3,
-            spaceBetween: 50,
+            spaceBetween: 20,
         },
 
-        1200: {
+        1024: {
             slidesPerView: 4,
-            spaceBetween: 50,
+            spaceBetween: 20,
         },
 
     }

@@ -93,6 +93,7 @@
         text-transform: uppercase;
         color: $color-davy-gray;
         animation: none;
+        text-align: center;
 
         @include respond(phone) {
             font-weight: 700;
@@ -143,6 +144,7 @@
     font-weight: 400;
     line-height: 2.4rem;
     color: $color-davy-gray;
+    text-align: center;
 
     &_colored {
         color: $color-grey;

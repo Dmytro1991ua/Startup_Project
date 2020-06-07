@@ -1,52 +1,48 @@
 *,
 *::before,
 *::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
-
 html {
-	font-size: 62.5%;
-	scroll-behavior: smooth;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
 
-	@include respond(tab-land) {
-		font-size: 58.5%;
-	}
+    @include respond(tab-land) {
+        font-size: 58.5%;
+    }
 
-	@include respond(tab-port) {
-		font-size: 53%;
-	}
 
-	@include respond(phone) {
-		font-size: 50%;
-	}
+    @include respond(tab-port) {
+        font-size: 56%;
+    }
 
-	@include respond(laptop-big) {
-		font-size: 85%;
-	}
 
-	@include respond(laptop-huge) {
-		font-size: 100%;
-	}
+    @include respond(laptop-big) {
+        font-size: 85%;
+    }
+
+
+    @include respond(laptop-huge) {
+        font-size: 100%;
+    }
 }
 
 body {
-	font-family: "Roboto-Slab", Georgia, sans-serif;
-	box-sizing: border-box;
-
-
+    font-family: "Roboto-Slab", Georgia, sans-serif;
+    box-sizing: border-box;
 }
 
 @include respond(phone) {
-		
-		.lock {
-			overflow: hidden;
-		}
-	}
+    .lock {
+        overflow: hidden;
+    }
+}
+
 
 ::selection {
-  		background: $color-light-red;
-  		color: $color-white;
-	}
+    background: $color-light-red;
+    color: $color-white;
+}

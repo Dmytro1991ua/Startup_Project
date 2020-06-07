@@ -6,6 +6,11 @@
             margin-right: 3rem;
         }
 
+        @include respond(tab-port) {
+            align-items: stretch;
+        }
+
+
         @include respond(phone) {
             &:not(:last-child) {
                 margin-right: 0;
@@ -18,30 +23,68 @@
             max-width: 100%;
         }
 
-        @include respond(phone) {
+        @include respond(tab-port) {
             & > * {
-                max-width: 100%;
+                width: 100%;
             }
         }
     }
+}
 
-    &__icon {
-        width: 3.5rem;
-        height: 3.8rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        background-color: red;
+.swiper-button-prev,
+.swiper-button-next {
+    top: 38%;
+    color: $color-white;
+    padding: 1.2rem 1.6rem;
+}
+
+.swiper-button-prev {
+    background-color: $color-davy-gray;
+    left: 0;
+
+    @media only screen and (max-width: 1024px) {
+        left: 7px;
     }
 
-    &__slide-pointer {
-        width: 1rem;
-        height: 1.4rem;
-        position: absolute;
+    @include respond(tab-port) {
+        left: 0;
     }
 
-    &--left {}
 
-    &--right {}
+    @include respond(laptop-big) {
+        left: 2.5rem;
+    }
+
+
+    @include respond(laptop-huge) {
+        left: 4rem;
+    }
+}
+
+.swiper-button-next {
+    background-color: $color-light-red;
+    right: 0;
+
+    @media only screen and (max-width: 1024px) {
+        right: 7px;
+    }
+
+    @include respond(tab-port) {
+        right: 0;
+    }
+
+
+    @include respond(laptop-big) {
+        right: 2.5rem;
+    }
+
+
+    @include respond(laptop-huge) {
+        right: 4rem;
+    }
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 1.3rem;
 }

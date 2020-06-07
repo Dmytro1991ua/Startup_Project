@@ -3,6 +3,11 @@
     flex-wrap: wrap;
     align-items: baseline;
 
+    @include respond(laptop-big) {
+        justify-content: center;
+    }
+
+
     @include respond(phone) {
         justify-content: center;
     }
@@ -11,6 +16,13 @@
     &__img {
         position: relative;
         flex: 0 0 30%;
+
+        @include respond(laptop-big) {
+            flex: 0 0 23%;
+            margin-right: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
 
         @include respond(phone) {
             flex: 0 0 45%;
@@ -36,6 +48,11 @@
         max-width: 100%;
         height: auto;
         display: block;
+
+        @include respond(laptop-big) {
+            width: 100%;
+        }
+
 
         @include respond(tiny-phone) {
             max-width: 100%;
@@ -73,6 +90,7 @@
 
     &__btn {
         display: flex;
+        align-items: center;
         padding: 1.3rem 2rem 1.3rem 2rem;
         background-color: $color-white;
     }
