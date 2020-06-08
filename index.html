@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=9">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Startup</title>
@@ -261,17 +261,17 @@
       <div class="latest-work__title wow bounceInUp" data-wow-duration="1.2s" data-wow-delay=".3s">
         <h2 class="heading-2 margin-bottom-medium ">Latest Works</h2>
         <ul class="latest-work__items margin-bottom-medium2">
-          <li class="latest-work__text latest-work__text--changed"><a class="latest-work__link" href="#">All</a></li>
-          <li class="latest-work__text"><a class="latest-work__link" href="#">Branding</a></li>
-          <li class="latest-work__text"><a class="latest-work__link" href="#">Design</a></li>
-          <li class="latest-work__text"><a class="latest-work__link" href="#">Development</a></li>
-          <li class="latest-work__text"><a class="latest-work__link" href="#">Strategy</a></li>
+          <a class="latest-work__link active" href="#" data-target="all">All</a>
+          <a class="latest-work__link" href="#" data-target="branding">Branding</a>
+          <a class="latest-work__link" href="#" data-target="design">Design</a>
+          <a class="latest-work__link" href="#" data-target="development">Development</a>
+          <a class="latest-work__link" href="#" data-target="strategy">Strategy</a>
         </ul>
       </div>
       <!-- Gallery start -->
       <div class="gallery">
 
-        <figure class="gallery__img wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+        <figure class="gallery__img" data-id="branding">
           <img src="img/work-1.png" class="gallery__pic" alt="Image 1">
           <figurecaption class="gallery__overlay">
             <h3 class="heading-3 heading-3--white margin-bottom-smallest">Hair Dresser</h3>
@@ -285,11 +285,11 @@
           </figurecaption>
         </figure>
 
-        <figure class="gallery__img wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+        <figure class="gallery__img" data-id="design">
           <img src="img/work-2.png" class="gallery__pic" alt="Image 2">
           <figurecaption class="gallery__overlay">
-            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Hair Dresser</h3>
-            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Branding</h5>
+            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Post Card</h3>
+            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Design</h5>
             <a class="gallery__btn">
               <h3 class="gallery__btn-title">View</h3>
               <svg class="gallery__icon">
@@ -299,11 +299,11 @@
           </figurecaption>
         </figure>
 
-        <figure class="gallery__img wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+        <figure class="gallery__img" data-id="strategy">
           <img src="img/work-3.png" class="gallery__pic" alt="Image 3">
           <figurecaption class="gallery__overlay">
-            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Hair Dresser</h3>
-            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Branding</h5>
+            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Promotions</h3>
+            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Strategy</h5>
             <a class="gallery__btn">
               <h3 class="gallery__btn-title">View</h3>
               <svg class="gallery__icon">
@@ -314,10 +314,10 @@
         </figure>
 
 
-        <figure class="gallery__img wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+        <figure class="gallery__img" data-id="branding">
           <img src="img/work-4.png" class="gallery__pic" alt="Image 4">
           <figurecaption class="gallery__overlay">
-            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Hair Dresser</h3>
+            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Photoshooting</h3>
             <h5 class="heading-5 heading-5--white margin-bottom-smaller">Branding</h5>
             <a class="gallery__btn">
               <h3 class="gallery__btn-title">View</h3>
@@ -328,10 +328,10 @@
           </figurecaption>
         </figure>
 
-        <figure class="gallery__img wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+        <figure class="gallery__img" data-id="branding">
           <img src="img/work-5.png" class="gallery__pic" alt="Image 5">
           <figurecaption class="gallery__overlay">
-            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Hair Dresser</h3>
+            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Bicycle</h3>
             <h5 class="heading-5 heading-5--white margin-bottom-smaller">Branding</h5>
             <a class="gallery__btn">
               <h3 class="gallery__btn-title">View</h3>
@@ -342,11 +342,11 @@
           </figurecaption>
         </figure>
 
-        <figure class="gallery__img wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+        <figure class="gallery__img" data-id="development">
           <img src="img/work-6.png" class="gallery__pic" alt="Image 6">
           <figurecaption class="gallery__overlay">
-            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Hair Dresser</h3>
-            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Branding</h5>
+            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Planning</h3>
+            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Development</h5>
             <a class="gallery__btn">
               <h3 class="gallery__btn-title">View</h3>
               <svg class="gallery__icon">
@@ -356,11 +356,11 @@
           </figurecaption>
         </figure>
 
-        <figure class="gallery__img wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+        <figure class="gallery__img" data-id="development">
           <img src="img/work-7.png" class="gallery__pic" alt="Image 7">
           <figurecaption class="gallery__overlay">
-            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Hair Dresser</h3>
-            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Branding</h5>
+            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Organizing</h3>
+            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Development</h5>
             <a class="gallery__btn">
               <h3 class="gallery__btn-title">View</h3>
               <svg class="gallery__icon">
@@ -371,11 +371,11 @@
         </figure>
 
 
-        <figure class="gallery__img wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+        <figure class="gallery__img" data-id="design">
           <img src="img/work-8.png" class="gallery__pic" alt="Image 8">
           <figurecaption class="gallery__overlay">
-            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Hair Dresser</h3>
-            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Branding</h5>
+            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Paintings</h3>
+            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Design</h5>
             <a class="gallery__btn">
               <h3 class="gallery__btn-title">View</h3>
               <svg class="gallery__icon">
@@ -385,11 +385,11 @@
           </figurecaption>
         </figure>
 
-        <figure class="gallery__img wow bounceInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+        <figure class="gallery__img" data-id="strategy">
           <img src="img/work-9.png" class="gallery__pic" alt="Image 9">
           <figurecaption class="gallery__overlay">
-            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Hair Dresser</h3>
-            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Branding</h5>
+            <h3 class="heading-3 heading-3--white margin-bottom-smallest">Targeting</h3>
+            <h5 class="heading-5 heading-5--white margin-bottom-smaller">Strategy</h5>
             <a class="gallery__btn">
               <h3 class="gallery__btn-title">View</h3>
               <svg class="gallery__icon">

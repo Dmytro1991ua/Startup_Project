@@ -16,6 +16,7 @@
     &__img {
         position: relative;
         flex: 0 0 30%;
+        transition: all 1s ease-in;
 
         @include respond(laptop-big) {
             flex: 0 0 23%;

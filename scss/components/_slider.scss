@@ -81,6 +81,11 @@
     top: 38%;
     color: $color-white;
     padding: 1.2rem 1.6rem;
+    transition: all .5s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .swiper-button-prev {
@@ -133,3 +138,5 @@
 .swiper-button-next:after {
     font-size: 1.3rem;
 }
+
+

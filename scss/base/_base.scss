@@ -46,3 +46,7 @@ body {
     background: $color-light-red;
     color: $color-white;
 }
+
+body.lock {
+    overflow: hidden;
+}
