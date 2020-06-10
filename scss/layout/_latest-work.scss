@@ -32,18 +32,6 @@
             }
         }
 
-        @include respond(phone) {
-            font-weight: 600;
-            font-size: 88%;
-        }
-
-
-        @include respond(tiny-phone) {
-            font-size: 88%;
-            font-weight: 500;
-        }
-
-
         &:hover {
             color: $color-light-red;
             transform: scale(1.1);

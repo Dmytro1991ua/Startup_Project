@@ -2745,10 +2745,11 @@ body {
   font-family: "Roboto-Slab", Georgia, sans-serif;
   box-sizing: border-box; }
 
-@media only screen and (max-width: 48em) {
-  .lock {
-    overflow: hidden; } }
-
+/*@include respond(phone) {
+    .lock {
+        overflow: hidden;
+    }
+} */
 ::selection {
   background: #c0301c;
   color: #fff; }
@@ -3297,6 +3298,66 @@ body.lock {
     color: #c0301c;
     padding-right: 1.2rem; }
 
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 13;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s ease-in-out; }
+  .lightbox__close {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    font-size: 3.4rem;
+    font-weight: 500;
+    padding: 1.5rem 2.2rem;
+    background-color: rgba(255, 119, 48, 0.8);
+    color: #fff;
+    border-radius: 50%;
+    transition: all .5s ease; }
+    @media only screen and (max-width: 62em) {
+      .lightbox__close {
+        top: 10%;
+        right: 8%; } }
+    .lightbox__close:hover {
+      background-color: #90ee90;
+      color: #ff0000;
+      cursor: pointer;
+      transform: scale(1.1); }
+  .lightbox__content {
+    overflow: hidden; }
+  .lightbox__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all .5s ease; }
+    @media only screen and (max-width: 62em) {
+      .lightbox__img {
+        min-width: 82%;
+        width: 79%;
+        margin: 0 auto; } }
+    .lightbox__img:hover {
+      transform: scale(1.1);
+      cursor: pointer; }
+
+.lightbox.show {
+  opacity: 1;
+  visibility: visible; }
+
+.lightbox.hide {
+  opacity: 0;
+  visibility: hidden; }
+
 .slider__info {
   display: flex;
   flex-direction: column;
@@ -3590,40 +3651,39 @@ body.lock {
   @media only screen and (max-width: 48em) {
     .navigation {
       background-color: rgba(192, 48, 28, 0.9);
-      padding: 2.7rem 0rem; } }
+      padding: 2rem 0rem; } }
   .navigation__body {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap; }
   .navigation__logo {
+    position: relative;
+    z-index: 5;
     color: #fff;
     animation: bounceInDown 1.2s ease-in .1s;
     text-decoration: none;
     cursor: pointer; }
-  .navigation__checkbox {
-    display: none; }
-  .navigation__button {
-    width: 7rem;
-    height: 7rem;
-    background-color: #bbbbbb;
-    border-radius: 50%;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 1rem;
-    right: 10.5rem;
+  .navigation__toggle-btn {
+    position: relative;
     z-index: 5;
+    display: none;
+    margin-top: .5rem;
+    padding: 2rem 2rem 1rem 2rem;
+    border: 2px solid #777777;
+    background-color: #bbbbbb;
+    border-radius: 10px;
     cursor: pointer; }
-    @media only screen and (max-width: 62em) {
-      .navigation__button {
-        right: 1.2rem; } }
+    @media only screen and (max-width: 48em) {
+      .navigation__toggle-btn {
+        display: block; } }
   .navigation__icon {
     position: relative;
-    margin-top: 3.5rem;
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%); }
     .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+      display: none;
       width: 3rem;
       height: 2px;
       background-color: #000000;
@@ -3637,82 +3697,84 @@ body.lock {
       top: -.8rem; }
     .navigation__icon::after {
       top: .8rem; }
-  .navigation__background {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-    position: fixed;
-    top: 1.2rem;
-    right: 10.7rem;
-    cursor: pointer;
-    background: radial-gradient(#c0301c, #ff0000);
-    z-index: 3;
-    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
-    @media only screen and (max-width: 62em) {
-      .navigation__background {
-        right: 1.8rem; } }
   .navigation__nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    transition: all 0.5s;
-    z-index: 4;
-    opacity: 0;
-    width: 0;
-    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+    animation: bounceInDown 1.2s ease-in .1s; }
+    @media only screen and (max-width: 48em) {
+      .navigation__nav {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s;
+        z-index: 4;
+        opacity: 1;
+        visibility: hidden;
+        background-color: #ff0000; } }
   .navigation__list {
-    text-align: center; }
+    display: flex; }
+    @media only screen and (max-width: 48em) {
+      .navigation__list {
+        display: block;
+        text-align: center; } }
   .navigation__item {
-    list-style: none;
-    margin-bottom: 1.3rem; }
+    list-style: none; }
+    .navigation__item:not(:last-child) {
+      margin-right: 1.7rem; }
   .navigation__link:link, .navigation__link:visited {
-    display: inline-block;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 400;
     line-height: 2.4rem;
-    letter-spacing: .8rem;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
+    letter-spacing: 0.35px;
     text-decoration: none;
     color: #fff;
-    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
-    background-size: 225%;
-    transition: all .5s; }
-    .navigation__link:link:hover, .navigation__link:link:active, .navigation__link:visited:hover, .navigation__link:visited:active {
-      background-position: 100%;
-      transform: traslateX(1rem);
-      color: #000000;
-      font-weight: 600;
-      transition: all .2s; }
-  .navigation__checkbox:checked ~ .navigation__background {
-    transform: scale(80); }
-  .navigation__checkbox:checked ~ .navigation__nav {
-    opacity: 1;
-    width: 100%;
-    overflow: auto; }
-  .navigation__button:hover .navigation__icon::before {
-    top: -1rem; }
-  .navigation__button:hover .navigation__icon::after {
-    top: 1rem; }
-  .navigation__checkbox:checked + .navigation__button .navigation__icon {
-    background-color: transparent; }
-  .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
-    transform: rotate(135deg);
-    top: 0; }
-  .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
-    transform: rotate(-135deg);
-    top: 0; }
+    transition: all .5s ease; }
+    @media only screen and (max-width: 48em) {
+      .navigation__link:link, .navigation__link:visited {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 400;
+        line-height: 2.4rem;
+        letter-spacing: .8rem;
+        text-transform: uppercase;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        color: #fff;
+        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+        background-size: 225%;
+        transition: all .5s; }
+        .navigation__link:link:hover, .navigation__link:link:active, .navigation__link:visited:hover, .navigation__link:visited:active {
+          background-position: 100%;
+          transform: traslateX(1rem);
+          color: #000000;
+          font-weight: 600;
+          transition: all .2s; } }
 
 .navigation.sticky {
   background-color: rgba(192, 48, 28, 0.9);
   padding: 2.7rem 2rem;
   transition: all .4s;
-  z-index: 11; }
+  z-index: 10; }
+
+.navigation__nav.show {
+  opacity: 1;
+  visibility: visible;
+  top: 0; }
+
+.navigation__icon.active {
+  background-color: transparent; }
+
+.navigation__icon.active::before {
+  transform: rotate(135deg);
+  top: 0; }
+
+.navigation__icon.active::after {
+  transform: rotate(-135deg);
+  top: 0; }
 
 .latest-work {
   padding: 10rem 0; }
@@ -3738,14 +3800,6 @@ body.lock {
       @media only screen and (max-width: 34.3em) {
         .latest-work__link:link:not(:last-child), .latest-work__link:visited:not(:last-child) {
           margin-right: 1.2rem; } }
-    @media only screen and (max-width: 48em) {
-      .latest-work__link:link, .latest-work__link:visited {
-        font-weight: 600;
-        font-size: 88%; } }
-    @media only screen and (max-width: 34.3em) {
-      .latest-work__link:link, .latest-work__link:visited {
-        font-size: 88%;
-        font-weight: 500; } }
     .latest-work__link:link:hover, .latest-work__link:visited:hover {
       color: #c0301c;
       transform: scale(1.1); }

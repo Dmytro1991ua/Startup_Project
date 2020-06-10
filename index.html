@@ -21,13 +21,9 @@
           <h3 class="heading-3">Startup</h3>
         </a>
         <div class="navigation__menu">
-          <input type="checkbox" id="nav-toggle" class="navigation__checkbox">
-
-          <label for="nav-toggle" class="navigation__button">
+          <div class="navigation__toggle-btn">
             <span class="navigation__icon">&nbsp;</span>
-          </label>
-          <div class="navigation__background">&nbsp;</div>
-
+          </div>
           <nav class="navigation__nav">
             <ul class="navigation__list">
               <li class="navigation__item"><a href="#home" class="navigation__link">Home</a></li>
@@ -46,7 +42,7 @@
   <!-- Navigation section end -->
 
   <!-- Header start -->
-  <header class="header">
+  <header class="header" id="home">
     <div class="container">
       <div class="header__body">
         <h1 class="heading-1">
@@ -401,6 +397,14 @@
 
       </div>
       <!-- Gallery end-->
+      <!--Lightbox (popup) starts-->
+      <div class="lightbox">
+        <span class="lightbox__close">&times;</span>
+        <div class="lightbox__content">
+          <img class="lightbox__img" src="img/work-1.png" alt="Work 1">
+        </div>
+      </div>
+      <!--Lightbox (popup) ends-->
     </div>
   </section>
   <!-- Latest work end -->

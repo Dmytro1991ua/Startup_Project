@@ -45,13 +45,15 @@ var swiper = new Swiper('.swiper-container', {
 new WOW({ mobile: false }).init();
 
 // Fixed Header on Scroll
-window.onscroll = function () {
-    const scrollTop = document.documentElement.scrollTop;
-    if (window.innerWidth > 768) {
-        if (scrollTop > 70) {
-            document.querySelector(".navigation").classList.add("sticky");
-        } else {
-            document.querySelector(".navigation").classList.remove("sticky");
+function fixedHeader() {
+    window.onscroll = function () {
+        const scrollTop = document.documentElement.scrollTop;
+        if (window.innerWidth > 768) {
+            if (scrollTop > 70) {
+                document.querySelector(".navigation").classList.add("sticky");
+            } else {
+                document.querySelector(".navigation").classList.remove("sticky");
+            }
         }
     }
 }
@@ -61,7 +63,6 @@ window.onscroll = function () {
 //select elements to work with (all childrens of tabs links and further content )
 function showTabs() {
     const tabs = document.querySelector(".latest-work__items").children;
-    console.log(tabs);
     const tabsContent = document.querySelector(".gallery").children;
 
     //loop through each tab link
@@ -74,7 +75,6 @@ function showTabs() {
             }
             tabs[i].classList.add("active");
             const target = tabs[i].getAttribute("data-target");//data attribute for tabs
-            console.log(target);
 
             //loop through all children of gallery
             for (let k = 0; k < tabsContent.length; k++) {
@@ -89,5 +89,69 @@ function showTabs() {
     }
 }
 
-showTabs();
+//open and close toggle btn on click
+function openToggle() {
+    //open toggle on click
+    const toggleBtn = document.querySelector(".navigation__toggle-btn");
+    toggleBtn.addEventListener("click", () => {
+        document.querySelector(".navigation__nav").classList.toggle("show");
+        document.querySelector(".navigation__icon").classList.toggle("active");
+        document.querySelector("body").classList.add("lock");
+    });
 
+    //close toggle on click on a specific link
+    const navbar = document.querySelector(".navigation__nav");
+    const links = navbar.querySelectorAll(".navigation__link");
+
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            document.querySelector(".navigation__nav").classList.toggle("show");
+            document.querySelector(".navigation__icon").classList.toggle("active");
+            document.querySelector("body").classList.remove("lock");
+        });
+    });
+
+}
+
+function lightbox() {
+    const lightbox = document.querySelector(".lightbox");
+    const closeBtn = document.querySelector(".lightbox__close");
+    const lightboxImage = document.querySelector(".lightbox__img");
+    const galleryItems = document.querySelectorAll(".gallery__img");
+
+    //loop through each element in gallery
+    galleryItems.forEach(img => {
+        img.querySelector(".gallery__btn").addEventListener("click", (event) => {
+            event.preventDefault();
+            lightbox.classList.remove("hide");
+            lightbox.classList.add("show");
+            document.querySelector("body").classList.add("lock");
+
+            //change the src of particular img 
+            lightboxImage.src = img.querySelector("img").getAttribute("src");
+        });
+    });
+
+    //listen for changes on click to close btn
+    closeBtn.addEventListener("click", () => {
+        lightbox.classList.add("hide");
+        lightbox.classList.remove("show");
+        document.querySelector("body").classList.remove("lock");
+    });
+
+    //close lightbox outside img
+    lightbox.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target === lightboxImage)) {
+            lightbox.classList.add("hide");
+            lightbox.classList.remove("show");
+            document.querySelector("body").classList.remove("lock");
+        }
+    });
+};
+
+//call functions
+showTabs();
+fixedHeader();
+openToggle();
+lightbox();

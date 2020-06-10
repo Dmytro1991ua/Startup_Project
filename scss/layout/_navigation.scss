@@ -9,7 +9,7 @@
 
     @include respond(phone) {
         background-color: rgba($color-light-red, 0.9);
-        padding: 2.7rem 0rem;
+        padding: 2rem 0rem;
     }
 
 
@@ -18,36 +18,32 @@
     }
 
     &__logo {
+        position: relative;
+        z-index: 5;
         color: $color-white;
         animation: bounceInDown 1.2s ease-in .1s;
         text-decoration: none;
         cursor: pointer;
     }
 
-    &__checkbox {
-        display: none;
-    }
-
-    &__button {
-        width: 7rem;
-        height: 7rem;
-        background-color: $color-silver;
-        border-radius: 50%;
-        box-shadow: 0 1rem 3rem rgba($color-black, 0.3);
-        position: fixed;
-        top: 1rem;
-        right: 10.5rem;
+    &__toggle-btn {
+        position: relative;
         z-index: 5;
+        display: none;
+        margin-top: .5rem;
+        padding: 2rem 2rem 1rem 2rem;
+        border: 2px solid #777777;
+        background-color: #bbbbbb;
+        border-radius: 10px;
         cursor: pointer;
 
-        @include respond(tab-port) {
-            right: 1.2rem;
+        @include respond(phone) {
+            display: block;
         }
     }
 
     &__icon {
         position: relative;
-        margin-top: 3.5rem;
         top: 0;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -55,6 +51,7 @@
         &,
         &::before,
         &::after {
+            display: none;
             width: 3rem;
             height: 2px;
             background-color: $color-black;
@@ -66,8 +63,7 @@
             content: "";
             position: absolute;
             left: 0;
-            transition: all 0.3s; //animation for __icon while we are hovering __button
-       
+            transition: all 0.3s;
         }
 
         &::before {
@@ -79,103 +75,76 @@
         }
     }
 
-    &__background {
-        width: 6rem;
-        height: 6rem;
-        border-radius: 50%;
-        position: fixed;
-        top: 1.2rem;
-        right: 10.7rem;
-        cursor: pointer;
-        background: radial-gradient($color-light-red, $color-dark-red);
-        z-index: 3;
-        transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    &__nav {
+        animation: bounceInDown 1.2s ease-in .1s;
 
-        @include respond(tab-port) {
-            right: 1.8rem;
+        @include respond(phone) {
+            position: fixed;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            @include flex-direction(column);
+
+            transition: all 0.5s;
+            z-index: 4;
+            opacity: 1;
+            visibility: hidden;
+            background-color: $color-dark-red;
         }
     }
 
-    &__nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-
-        @include display-flex;
-
-        height: 100vh;
-        transition: all 0.5s;
-        z-index: 4;
-        opacity: 0;
-        width: 0;
-        transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
     &__list {
-        text-align: center;
+        display: flex;
+
+        @include respond(phone) {
+            display: block;
+            text-align: center;
+        }
     }
 
     &__item {
         list-style: none;
-        margin-bottom: 1.3rem;
+
+        &:not(:last-child) {
+            margin-right: 1.7rem;
+        }
     }
 
     &__link:link,
     &__link:visited {
-        display: inline-block;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 400;
         line-height: 2.4rem;
-        letter-spacing: .8rem;
-        text-transform: uppercase;
-        padding: 1rem 2rem;
+        letter-spacing: 0.35px;
         text-decoration: none;
         color: $color-white;
-        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
-        background-size: 225%;
-        transition: all .5s;
+        transition: all .5s ease;
 
-        &:hover,
-        &:active {
-            background-position: 100%;
-            transform: traslateX(1rem);
-            color: $color-black;
-            font-weight: 600;
-            transition: all .2s;
+        @include respond(phone) {
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 2.4rem;
+            letter-spacing: .8rem;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            color: $color-white;
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            background-size: 225%;
+            transition: all .5s;
+
+            &:hover,
+            &:active {
+                background-position: 100%;
+                transform: traslateX(1rem);
+                color: $color-black;
+                font-weight: 600;
+                transition: all .2s;
+            }
         }
-    }
-
-    &__checkbox:checked ~ &__background {
-        transform: scale(80);
-    }
-
-    &__checkbox:checked ~ &__nav {
-        opacity: 1;
-        width: 100%;
-        overflow: auto;
-    }
-
-    &__button:hover &__icon::before {
-        top: -1rem;
-    }
-
-    &__button:hover &__icon::after {
-        top: 1rem;
-    }
-
-    &__checkbox:checked + &__button &__icon {
-        background-color: transparent;
-    }
-
-    &__checkbox:checked + &__button &__icon::before {
-        transform: rotate(135deg);
-        top: 0;
-    }
-
-    &__checkbox:checked + &__button &__icon::after {
-        transform: rotate(-135deg);
-        top: 0;
     }
 }
 
@@ -184,5 +153,26 @@
     background-color: rgba($color-light-red, 0.9);
     padding: 2.7rem 2rem;
     transition: all .4s;
-    z-index: 11;
+    z-index: 10;
+}
+
+//style .show in order to hide or show nav on click to toggle button
+.navigation__nav.show {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+}
+
+.navigation__icon.active {
+    background-color: transparent;
+}
+
+.navigation__icon.active::before {
+    transform: rotate(135deg);
+    top: 0;
+}
+
+.navigation__icon.active::after {
+    transform: rotate(-135deg);
+    top: 0;
 }
