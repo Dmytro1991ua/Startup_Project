@@ -1,52 +1,58 @@
 .footer {
-	@include padding-section;
-	background-color: $color-light-red;
+    @include padding-section;
 
-	&__media {
-		@include display-flex;
-		position: relative;
+    background-color: $color-light-red;
 
-		&::before {
-		content:"";
-		display: inline-block;
-		position: absolute;
-		bottom: 0;
-		right: 48%;
-		width: 5rem;
-		height: 1rem;
-		border-bottom: 2px solid $color-white;
-		transform: translateY(2.9rem);
-		}
+    @include respond(phone) {
+        padding: 7rem 0;
+    }
 
 
-		@include respond(phone) {
-			&::before {
-				content: none;
-			}
-		}
-	}
+    &__media {
+        @include display-flex;
 
-	&__shape {
-		width: 3.5rem;
-		height: 3.5rem;
-		border-radius: 50%;
-		border: 2px solid $color-white;
-		@include display-flex;
+        position: relative;
 
-		&:not(:last-child) {
-			margin-right: 1.4rem;
-		}
+        &::before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            right: 48%;
+            width: 5rem;
+            height: 1rem;
+            border-bottom: 2px solid $color-white;
+            transform: translateY(2.9rem);
+        }
 
-		@include respond(phone) {
-			width: 4rem;
-			height: 4rem;
-		}
+        @include respond(phone) {
+            &::before {
+                content: none;
+            }
+        }
+    }
 
-	}
+    &__shape {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        border: 2px solid $color-white;
 
-	&__icon {
-		width: 1.6rem;
-		height: 1.2rem;
-		fill: $color-white;
-	}
+        @include display-flex;
+
+        &:not(:last-child) {
+            margin-right: 1.4rem;
+        }
+
+        @include respond(phone) {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+
+    &__icon {
+        width: 1.6rem;
+        height: 1.2rem;
+        fill: $color-white;
+    }
 }

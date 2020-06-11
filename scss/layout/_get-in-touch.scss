@@ -1,19 +1,21 @@
 .get-in-touch {
-	@include padding-section;
+    @include padding-section;
 
-	@include respond(phone) {
-		padding: 5rem 0;
-	}
+    @include respond(phone) {
+        padding: 5rem 0;
+    }
 
-	&__info {
-		text-align: center;
-	}
 
-	&__body {
-		@include align-items(flex-start, nowrap);
+    &__info {
+        text-align: center;
+    }
 
-		@include respond(phone) {
-			flex-wrap: wrap;
-		}
-	}
+    &__body {
+        @include align-items(flex-start, nowrap);
+
+        @include respond(phone) {
+            flex-wrap: wrap;
+        }
+    }
+
 }

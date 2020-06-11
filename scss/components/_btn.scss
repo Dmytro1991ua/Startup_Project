@@ -60,9 +60,16 @@
     line-height: 2.4rem;
     color: $color-grey;
     text-decoration: none;
-    transition: all .3s;
+    transition: all .4s;
 
     &:hover {
         color: $color-light-red;
+    }
+
+    @include respond(phone) {
+        padding: 1.5rem 3rem;
+        background-color: $color-dark-red;
+        color: $color-white;
+        border-radius: 5px;
     }
 }

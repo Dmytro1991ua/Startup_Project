@@ -129,6 +129,10 @@
         line-height: 3rem;
         font-family: Montserrat;
         font-weight: 600;
+
+        @include respond(phone) {
+            font-size: 1.5rem;
+        }
     }
 
     &--white {
@@ -148,6 +152,7 @@
 
     &_colored {
         color: $color-grey;
+        font-size: 1.6rem;
 
         span {
             color: $color-light-red;

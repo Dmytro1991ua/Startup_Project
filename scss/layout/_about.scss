@@ -1,9 +1,10 @@
 .about {
     @include padding-section;
+
     background-color: $color-light-grey;
 
     @include respond(phone) {
-        padding: 5rem 0;
+        padding: 4rem 0;
     }
 
 

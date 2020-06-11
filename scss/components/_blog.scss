@@ -2,6 +2,11 @@
     &__details {
         @include align-items(flex-start, nowrap);
 
+        @include respond(tab-port) {
+            margin-bottom: 3.5rem;
+        }
+
+
         @include respond(phone) {
             flex-wrap: wrap;
 
@@ -37,10 +42,20 @@
         }
     }
 
+    &__info {
+        @include respond(phone) {
+            @include flex-direction(column);
+        }
+    }
+
     &__topic {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+
+        @include respond(phone) {
+            justify-content: center;
+        }
     }
 
     &__date {
@@ -77,5 +92,11 @@
         line-height: 2.4rem;
         max-width: 63.7rem;
         color: $color-davy-gray;
+
+        @include respond(phone) {
+            text-align: center;
+            font-size: 1.6rem;
+            line-height: 3.2rem;
+        }
     }
 }

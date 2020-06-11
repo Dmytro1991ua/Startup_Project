@@ -1,12 +1,12 @@
 .services {
-	@include padding-section;
+    @include padding-section;
 
-	@include respond(phone) {
-		padding: 5rem 0;
-	}
+    @include respond(phone) {
+        padding: 4.5rem 0;
+    }
 
-	&__title {
-		text-align: center;
-	}
-	
+
+    &__title {
+        text-align: center;
+    }
 }
