@@ -35,11 +35,9 @@ body {
     box-sizing: border-box;
 }
 
-/*@include respond(phone) {
-    .lock {
-        overflow: hidden;
-    }
-} */
+.wrapper {
+    overflow: hidden;
+}
 
 ::selection {
     background: $color-light-red;

@@ -1,0 +1,33 @@
+.preloader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-light-red;
+    z-index: 100;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    transition: all 1s linear;
+
+    &__loader {
+        width: 8rem;
+        height: 8rem;
+        border: 1rem solid #ffffff;
+        border-right-color: rgb(42, 209, 78);
+        border-radius: 50%;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+}
+
+.preloader-container.opacity-0 {
+    opacity: 0;
+}

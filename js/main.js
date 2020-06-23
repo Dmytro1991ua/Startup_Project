@@ -44,6 +44,16 @@ var swiper = new Swiper('.swiper-container', {
 //wow JS
 new WOW({ mobile: false }).init();
 
+//preloader
+function runPreloader() {
+    const preloader = document.querySelector(".preloader-container");
+    preloader.classList.add("opacity-0");
+    setTimeout(function () {
+        preloader.style.display = "none";
+    }, 1000)
+}
+window.addEventListener("load", runPreloader);
+
 // Fixed Header on Scroll
 function fixedHeader() {
     window.onscroll = function () {
@@ -96,7 +106,7 @@ function openToggle() {
     toggleBtn.addEventListener("click", () => {
         document.querySelector(".navigation__nav").classList.toggle("show");
         document.querySelector(".navigation__icon").classList.toggle("active");
-        document.querySelector("body").classList.add("lock");
+        document.querySelector("body").classList.toggle("lock");
     });
 
     //close toggle on click on a specific link

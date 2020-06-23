@@ -78,7 +78,7 @@
         align-items: center;
         transition: all .5s ease;
 
-        @include respond(phone) {
+        @include respond(tab-port) {
             opacity: 1;
         }
 
