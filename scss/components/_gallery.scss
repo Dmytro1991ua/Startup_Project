@@ -45,6 +45,15 @@
         }
     }
 
+    &__img.hide {
+        display: none;
+    }
+
+    &__img.show {
+        display: block;
+        animation: showItem .5s ease;
+    }
+
     &__pic {
         max-width: 100%;
         height: auto;

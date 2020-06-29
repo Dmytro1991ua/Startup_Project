@@ -106,44 +106,38 @@
 
     &__item {
         list-style: none;
-
-        &:not(:last-child) {
-            margin-right: 1.7rem;
-        }
+        margin-right: .6rem;
     }
 
     &__link:link,
     &__link:visited {
-        font-size: 1.5rem;
+      
+        display: inline-block;
+        font-size: 1.4rem;
         font-weight: 400;
         line-height: 2.4rem;
-        letter-spacing: 0.35px;
+        text-transform: uppercase;
+        padding: 1rem 1.4rem;
         text-decoration: none;
         color: $color-white;
-        transition: all .5s ease;
+        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+        background-size: 240%;
+        transition: all .5s linear;
+        border-radius: 5px;
 
         @include respond(phone) {
-            display: inline-block;
             font-size: 2rem;
-            font-weight: 400;
-            line-height: 2.4rem;
             letter-spacing: .8rem;
-            text-transform: uppercase;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            color: $color-white;
-            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
-            background-size: 225%;
-            transition: all .5s;
+        }
 
-            &:hover,
-            &:active {
-                background-position: 100%;
-                transform: traslateX(1rem);
-                color: $color-black;
-                font-weight: 600;
-                transition: all .2s;
-            }
+
+        &:hover,
+        &:active {
+            background-position: 100%;
+            transform: traslateX(1rem);
+            color: $color-black;
+            font-weight: 600;
+            transition: all .2s;
         }
     }
 }

@@ -52,7 +52,9 @@ function runPreloader() {
         preloader.style.display = "none";
     }, 1000)
 }
+
 window.addEventListener("load", runPreloader);
+
 
 // Fixed Header on Scroll
 function fixedHeader() {
@@ -88,11 +90,18 @@ function showTabs() {
 
             //loop through all children of gallery
             for (let k = 0; k < tabsContent.length; k++) {
-                tabsContent[k].style.transform = "scale(0)";
-                tabsContent[k].style.display = "none";
-                if (target === tabsContent[k].getAttribute("data-id") || target === "all") {
-                    tabsContent[k].style.transform = "scale(1)";
-                    tabsContent[k].style.display = "block";
+            
+                if (target === tabsContent[k].getAttribute("data-id")) {
+                    tabsContent[k].classList.remove("hide");
+                    tabsContent[k].classList.add("show");
+                } else {
+                    tabsContent[k].classList.add("hide");
+                    tabsContent[k].classList.remove("show");
+                }
+
+                if (target === "all") {
+                    tabsContent[k].classList.remove("hide");
+                    tabsContent[k].classList.add("show");
                 }
             }
         });
