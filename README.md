@@ -1,4 +1,6 @@
-# Hey Everyone. Welcome to my journey as a Front-End Developer where I am striving to implement by doing Startup Agency Project. It is a truly tough and thorny way but enormously exciting at the same time
+Hey Everyone. Welcome to my journey as a Front-End Developer where I am striving to implement by doing Startup Agency Project. It is a truly tough and thorny way but enormously exciting at the same time
+
+# Startup Web Agency
 
 A Startup Web Agency project which specifies on developing websites and apps
 
